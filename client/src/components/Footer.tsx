@@ -50,7 +50,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-6 md:mb-0">
               <p className="text-white/80 text-sm">
-                © 2024 John Doe. All rights reserved.
+                © 2024 Nitin Singh. All rights reserved.
               </p>
               <p className="text-white/60 text-xs mt-1">
                 Crafted with ❤️ and lots of coffee

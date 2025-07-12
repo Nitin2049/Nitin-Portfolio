@@ -154,14 +154,14 @@ const Contact = () => {
             
             <div className="space-y-4">
               {[
-                { icon: Youtube, label: 'YouTube', handle: '@johndoe' },
-                { icon: Instagram, label: 'Instagram', handle: '@john_doe' },
-                { icon: MessageCircle, label: 'WhatsApp', handle: '+1 234 567 890' },
-                { icon: Mail, label: 'Email', handle: 'john@example.com' }
+                { icon: Youtube, label: 'YouTube', handle: '@nitinsingh' },
+                { icon: Instagram, label: 'Instagram', handle: '@nitinsingh' },
+                { icon: MessageCircle, label: 'WhatsApp', handle: '+91 7310498750' },
+                { icon: Mail, label: 'Email', handle: 'contact@nitinsingh.com' }
               ].map((social) => (
                 <a
                   key={social.label}
-                  href="#"
+                  href="https://www.instagram.com/bitsbynitin?igsh=MWxjNGltMno5dm8xeA=="
                   className="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
                 >
                   <social.icon className="w-6 h-6 text-blue-400 group-hover:text-blue-300" />
