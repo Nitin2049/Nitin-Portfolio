@@ -60,7 +60,7 @@ const Hero = () => {
     <section 
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-16 pb-4"
     >
       {/* Animated background particles */}
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
@@ -79,12 +79,12 @@ const Hero = () => {
       <div className="text-center z-10 max-w-4xl mx-auto px-4">
         <h1 
           ref={titleRef}
-          className="text-6xl md:text-8xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent"
+          className="text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
         >
-          Nitin Singh
+          
+          Welcome to the world of Nitin Singh
         </h1>
-        
-        <p 
+        <p
           ref={subtitleRef}
           className="text-xl md:text-2xl text-white/80 mb-8 font-light"
         >
@@ -94,7 +94,7 @@ const Hero = () => {
         <div ref={buttonRef}>
           <Button
             onClick={scrollToProjects}
-            className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-blue-500/25"
+            className="bg-gradient-to-r from-pink-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 text-white border-0 transition-all duration-300 px-8 py-6 text-lg rounded-full shadow-lg shadow-pink-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:scale-105 glow-button"
           >
             View My Work
           </Button>

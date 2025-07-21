@@ -81,10 +81,10 @@ const Projects = () => {
       className="py-20 px-4 max-w-7xl mx-auto"
     >
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white mb-4">
+        <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent mb-4">
           Featured Projects
         </h2>
-        <p className="text-white/80 text-lg">
+        <p className="text-lg bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
           A collection of my recent work and creative experiments
         </p>
       </div>
@@ -94,9 +94,23 @@ const Projects = () => {
           <div
             key={project.id}
             ref={(el) => (cardsRef.current[index] = el)}
-            className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+            className="group bg-black/30 backdrop-blur-md rounded-2xl overflow-hidden transition-all duration-500 relative"
             onMouseEnter={() => handleCardHover(index, true)}
             onMouseLeave={() => handleCardHover(index, false)}
+            style={{
+              border: '2px solid transparent',
+              background: `
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) padding-box,
+                linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6, #ec4899) border-box
+              `,
+              boxShadow: `
+                0 0 20px rgba(59, 130, 246, 0.4),
+                0 0 40px rgba(6, 182, 212, 0.3),
+                0 0 60px rgba(139, 92, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1)
+              `,
+              animation: 'neonPulse 3s ease-in-out infinite alternate'
+            }}
           >
             <div className="aspect-video overflow-hidden">
               <img
@@ -116,15 +130,25 @@ const Projects = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <Badge
-                    key={tech}
-                    variant="secondary"
-                    className="bg-blue-500/20 text-blue-200 border-blue-400/30 hover:bg-blue-500/30"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
+                {project.tech.map((tech, techIndex) => {
+                  const colorCombos = [
+                    "text-white font-bold border border-purple-400/40 hover:border-purple-300/60",
+                    "text-white font-bold border border-cyan-400/40 hover:border-cyan-300/60",
+                    "text-white font-bold border border-teal-400/40 hover:border-teal-300/60",
+                    "text-white font-bold border border-red-400/40 hover:border-red-300/60",
+                    "text-white font-bold border border-purple-400/40 hover:border-purple-300/60"
+                  ];
+                  
+                  return (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className={`${colorCombos[techIndex % colorCombos.length]} transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm bg-transparent`}
+                    >
+                      {tech}
+                    </Badge>
+                  );
+                })}
               </div>
               
               <Button

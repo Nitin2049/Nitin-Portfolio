@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# Nitin Singh Portfolio
 
-## Project info
+A modern, responsive portfolio website showcasing web development projects and skills.
 
-**URL**: https://lovable.dev/projects/406db603-0ca3-4cfa-8e38-aedfe4901e57
+## 🚀 Features
 
-## How can I edit this code?
+- **Modern Design**: Dark theme with neon glow effects and glassmorphism
+- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
+- **Interactive Animations**: GSAP-powered animations and scroll triggers
+- **Project Showcase**: Featured projects with live demo links
+- **Contact Form**: Functional contact form for inquiries
+- **Performance Optimized**: Fast loading with modern web technologies
 
-There are several ways of editing your application.
+## 🛠️ Technologies Used
 
-**Use Lovable**
+- **Frontend Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom components
+- **UI Components**: shadcn/ui component library
+- **Animations**: GSAP (GreenSock Animation Platform)
+- **Build Tool**: Vite for fast development and building
+- **Icons**: Lucide React icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/406db603-0ca3-4cfa-8e38-aedfe4901e57) and start prompting.
+## 📦 Installation & Setup
 
-Changes made via Lovable will be committed automatically to this repo.
+Follow these steps to run the project locally:
 
-**Use your preferred IDE**
+```bash
+# Clone the repository
+git clone https://github.com/Nitin2049/Nitin-Portfolio.git
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Navigate to the project directory
+cd Nitin-Portfolio/client
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Design Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Neon Glow Effects**: Beautiful neon borders and button animations
+- **Gradient Text**: Colorful gradient text effects throughout
+- **Glass Morphism**: Modern glassmorphism card designs
+- **Smooth Animations**: Scroll-triggered animations and hover effects
+- **Dark Theme**: Professional black background with colorful accents
 
-**Use GitHub Codespaces**
+## 📱 Responsive Design
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The portfolio is fully responsive and optimized for:
+- Desktop (1920px+)
+- Laptop (1024px - 1919px)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
 
-## What technologies are used for this project?
+## 🌟 Sections
 
-This project is built with:
+1. **Hero**: Introduction and call-to-action
+2. **About**: Profile information and services
+3. **Projects**: Featured project showcase
+4. **Contact**: Contact form and social links
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📞 Contact
 
-## How can I deploy this project?
+- **Email**: [your-email@example.com]
+- **GitHub**: [@Nitin2049](https://github.com/Nitin2049)
+- **Portfolio**: [Live Demo Link]
 
-Simply open [Lovable](https://lovable.dev/projects/406db603-0ca3-4cfa-8e38-aedfe4901e57) and click on Share -> Publish.
+## 📄 License
 
-## Can I connect a custom domain to my Lovable project?
+This project is open source and available under the [MIT License](LICENSE).
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with ❤️ by Nitin Singh
