@@ -129,7 +129,7 @@ const Contact = () => {
               ].map((social) => (
                 <a
                   key={social.label}
-                  href="https://www.instagram.com/bitsbynitin?igsh=MWxjNGltMno5dm8xeA=="
+                  href="https://www.instagram.com/maxxcoding?igsh=MWxjNGltMno5dm8xeA=="
                   className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
                 >
                   <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 group-hover:text-blue-300 flex-shrink-0" />

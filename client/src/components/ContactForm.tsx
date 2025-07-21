@@ -1,21 +1,23 @@
+import React from "react";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const ContactForm1 = () => {
+const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     defaultValues: {
       name: "",
       email: "",
-      message: ""
-    }
+      mobile: "",
+      message: "",
+    },
   });
 
   const onSubmit = (data: any) => {
@@ -35,10 +37,6 @@ const ContactForm1 = () => {
         </p>
       </div>
       <div className="text-center mb-12">
-        <h1 className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent mb-6 tracking-tight">
-          Form 1/2
-        </h1>
-
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-lg">
             <div className="space-y-6">
@@ -47,16 +45,25 @@ const ContactForm1 = () => {
                   htmlFor="name"
                   className="text-white/90 text-sm font-medium text-left mb-1"
                 >
-                  Name
+                  Name*
                 </Label>
                 <Input
                   id="name"
-                  {...register("name", { required: true })}
+                  {...register("name", { 
+                    required: true,
+                    maxLength: {
+                      value: 30,
+                      message: "Name must be less than 30 characters"
+                    }
+                  })}
+                  maxLength={30}
                   className="bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400/50"
                   placeholder="Your full name"
                 />
                 {errors.name && (
-                  <span className="text-red-400 text-xs mt-1 text-left">Name is required.</span>
+                  <span className="text-red-400 text-xs mt-1 text-left">
+                    {errors.name.message || "Name is required."}
+                  </span>
                 )}
               </div>
 
@@ -65,23 +72,62 @@ const ContactForm1 = () => {
                   htmlFor="email"
                   className="text-white/90 text-sm font-medium text-left mb-1"
                 >
-                  Email
+                  Email*
                 </Label>
                 <Input
                   id="email"
                   type="email"
                   {...register("email", {
                     required: true,
+                    maxLength: {
+                      value: 30,
+                      message: "Email must be less than 30 characters"
+                    },
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Invalid email address"
-                    }
+                      message: "Invalid email address",
+                    },
                   })}
+                  maxLength={30}
                   className="bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400/50"
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
-                  <span className="text-red-400 text-xs mt-1 text-left">{errors.email.message || "Email is required."}</span>
+                  <span className="text-red-400 text-xs mt-1 text-left">
+                    {errors.email.message || "Email is required."}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Label
+                  htmlFor="mobile"
+                  className="text-white/90 text-sm font-medium text-left mb-1"
+                >
+                  Mobile*
+                </Label>
+                <Input
+                  id="mobile"
+                  type="tel"
+                  {...register("mobile", {
+                    required: true,
+                    maxLength: {
+                      value: 10,
+                      message: "Mobile number must be less than 10 characters"
+                    },
+                    pattern: {
+                      value: /^[+]?[0-9]{10,15}$/,
+                      message: "Please enter a valid mobile number",
+                    },
+                  })}
+                  maxLength={10}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400/50"
+                  placeholder="+91 98765 43210"
+                />
+                {errors.mobile && (
+                  <span className="text-red-400 text-xs mt-1 text-left">
+                    {errors.mobile.message || "Mobile number is required."}
+                  </span>
                 )}
               </div>
 
@@ -90,17 +136,26 @@ const ContactForm1 = () => {
                   htmlFor="message"
                   className="text-white/90 text-sm font-medium text-left mb-1"
                 >
-                  Message
+                  Message*
                 </Label>
                 <textarea
                   id="message"
                   rows={4}
-                  {...register("message", { required: true })}
+                  {...register("message", { 
+                    required: true,
+                    maxLength: {
+                      value: 1000,
+                      message: "Message must be less than 1000 characters"
+                    }
+                  })}
+                  maxLength={1000}
                   className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-md px-3 py-2 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400/50 focus:outline-none resize-none"
                   placeholder="Tell me about your project..."
                 />
                 {errors.message && (
-                  <span className="text-red-400 text-xs mt-1 text-left">Message is required.</span>
+                  <span className="text-red-400 text-xs mt-1 text-left">
+                    {errors.message.message || "Message is required."}
+                  </span>
                 )}
               </div>
 
@@ -118,4 +173,4 @@ const ContactForm1 = () => {
   );
 };
 
-export default ContactForm1;
+export default ContactForm;

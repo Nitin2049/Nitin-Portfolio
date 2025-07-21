@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +28,9 @@ const Navigation = () => {
   };
 
   const toggleMobileMenu = () => {
+    console.log('Hamburger clicked, current state:', isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    console.log('New state will be:', !isMobileMenuOpen);
   };
 
   return (
@@ -47,6 +50,13 @@ const Navigation = () => {
               className="text-white font-bold transition-all duration-300 text-lg px-4 py-2 hover:text-gray-300 border border-white/20 rounded-lg hover:border-white/40"
             >
               Home
+            </button>
+            
+            <button 
+              onClick={() => navigate('/pricing')}
+              className="text-white font-bold transition-all duration-300 text-lg px-4 py-2 hover:text-gray-300 border border-white/20 rounded-lg hover:border-white/40"
+            >
+              Pricing
             </button>
               
             <button 
@@ -80,13 +90,31 @@ const Navigation = () => {
           <div className="md:hidden mb-8">
             <div className="px-4 pt-4 pb-4 space-y-2 bg-white/10 backdrop-blur-md border-t border-white/20">
               <button 
-                onClick={() => navigate('/')}
+                onClick={() => {
+                  console.log('Home clicked - navigating to / and closing menu');
+                  navigate('/');
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full text-center px-4 py-3 text-white font-bold transition-all duration-300 text-lg hover:text-gray-300 border border-white/20 rounded-lg hover:border-white/40"
               >
                 Home
               </button>
               <button 
-                onClick={() => navigate('/book-consultation')}
+                onClick={() => {
+                  console.log('Pricing clicked - navigating to /pricing and closing menu');
+                  navigate('/pricing');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-center px-4 py-3 text-white font-bold transition-all duration-300 text-lg hover:text-gray-300 border border-white/20 rounded-lg hover:border-white/40 mt-2"
+              >
+                Pricing
+              </button>
+              <button 
+                onClick={() => {
+                  console.log('Book Consultation clicked - navigating to /book-consultation and closing menu');
+                  navigate('/book-consultation');
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full text-center px-4 py-3 text-white font-bold transition-all duration-300 text-lg hover:text-gray-300 border border-white/20 rounded-lg hover:border-white/40 mt-2"
               >
                 Book Consultation

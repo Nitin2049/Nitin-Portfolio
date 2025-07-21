@@ -5,9 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ContactForm1 from "@/components/ContactForm1";
+import ContactForm from "@/components/ContactForm";
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import Pricing from "./components/Pricing";
+import WebsiteOnboardingForm from "./components/WebsiteOnboardingForm";
 import "./App.css"
 
 const queryClient = new QueryClient();
@@ -22,7 +24,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="/book-consultation" element={<ContactForm1 />} />
+          <Route path="/book-consultation" element={<ContactForm />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/website-onboarding" element={<WebsiteOnboardingForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
