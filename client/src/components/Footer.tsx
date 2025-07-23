@@ -53,11 +53,11 @@ const Footer = () => {
                 © 2024 Nitin Singh. All rights reserved.
               </p>
               <p className="text-white/60 text-xs mt-1">
-                Crafted with ❤️ and lots of coffee
+                Crafted with ❤️ by Nitin Singh
               </p>
             </div>
             
-            <div className="flex space-x-6">
+            {/* <div className="flex space-x-6">
               {[
                 { icon: Youtube, href: '#' },
                 { icon: Instagram, href: '#' },
@@ -73,7 +73,7 @@ const Footer = () => {
                   <social.icon className="w-6 h-6" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

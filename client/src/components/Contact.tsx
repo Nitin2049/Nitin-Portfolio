@@ -140,30 +140,42 @@ const Contact = () => {
 
             <div className="space-y-3 sm:space-y-4">
               {[
-                { icon: Youtube, label: "YouTube", handle: "@nitinsingh" },
-                { icon: Instagram, label: "Instagram", handle: "@nitinsingh" },
+                { 
+                  icon: Youtube, 
+                  label: "YouTube", 
+                  handle: "@MaxxCodingg",
+                  url: "https://www.youtube.com/@MaxxCodingg"
+                },
+                { 
+                  icon: Instagram, 
+                  label: "Instagram", 
+                  handle: "@maxxcoding",
+                  url: "https://www.instagram.com/maxxcoding?igsh=MWxjNGltMno5dm8xeA=="
+                },
                 {
                   icon: MessageCircle,
                   label: "WhatsApp",
                   handle: "+91 7310498750",
+                  url: "https://wa.me/917310498750"
                 },
                 {
                   icon: Mail,
                   label: "Email",
-                  handle: "contact@nitinsingh.com",
+                  handle: "singhnitin2050@gmail.com",
+                  url: "mailto:singhnitin2050@gmail.com"
                 },
               ].map((social) => (
-                <a
+                <div
                   key={social.label}
                   onClick={() => {
+                    window.open(social.url, '_blank');
                     ReactGA.event({
-                      category: "Social",
-                      action: `Clicked ${social.label} Link`,
+                      category: "Social Link",
+                      action: `Clicked ${social.label}`,
                       label: social.handle,
                     });
                   }}
-                  href="https://www.instagram.com/maxxcoding?igsh=MWxjNGltMno5dm8xeA=="
-                  className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
+                  className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer"
                 >
                   <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 group-hover:text-blue-300 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
@@ -174,7 +186,7 @@ const Contact = () => {
                       {social.handle}
                     </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
