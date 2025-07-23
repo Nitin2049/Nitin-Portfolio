@@ -1,21 +1,24 @@
-
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Youtube, Instagram, Mail, MessageCircle } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Youtube, Instagram, Mail, MessageCircle } from "lucide-react";
+import ReactGA from "react-ga4";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const contactRef = useRef(null);
   const formRef = useRef(null);
   const socialRef = useRef(null);
-  
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -31,8 +34,8 @@ const Contact = () => {
           trigger: contactRef.current,
           start: "top 80%",
           end: "bottom 20%",
-          toggleActions: "play none none reverse"
-        }
+          toggleActions: "play none none reverse",
+        },
       }
     );
 
@@ -49,27 +52,29 @@ const Contact = () => {
           trigger: contactRef.current,
           start: "top 80%",
           end: "bottom 20%",
-          toggleActions: "play none none reverse"
-        }
+          toggleActions: "play none none reverse",
+        },
       }
     );
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission here
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <section 
+    <section
       id="contact"
       ref={contactRef}
       className="py-12 md:py-20 px-4 max-w-7xl mx-auto"
@@ -84,7 +89,10 @@ const Contact = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-        <div ref={formRef} className="space-y-6 md:space-y-8 order-2 lg:order-1">
+        <div
+          ref={formRef}
+          className="space-y-6 md:space-y-8 order-2 lg:order-1"
+        >
           {/* Book Consultation Button */}
           <div className="text-center">
             <Button
@@ -96,15 +104,22 @@ const Contact = () => {
                   0 0 60px rgba(6, 182, 212, 0.2),
                   inset 0 1px 0 rgba(255, 255, 255, 0.2)
                 `,
-                animation: 'neonPulse 2s ease-in-out infinite alternate'
+                animation: "neonPulse 2s ease-in-out infinite alternate",
               }}
               onClick={() => {
                 // Add your booking logic here
-                window.open("/book-consultation");
+                ReactGA.event({
+                  category: "Button",
+                  action: "Clicked 'Book a Consultation' Button",
+                  label: "Book Consultation",
+                });
+                navigate("/book-consultation");
               }}
             >
               <span className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
-                <span className="text-base sm:text-xl">Book a Consultation</span>
+                <span className="text-base sm:text-xl">
+                  Book a Consultation
+                </span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl"></div>
             </Button>
@@ -113,29 +128,51 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        
-        <div ref={socialRef} className="space-y-6 md:space-y-8 order-1 lg:order-2">
+
+        <div
+          ref={socialRef}
+          className="space-y-6 md:space-y-8 order-1 lg:order-2"
+        >
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
             <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6 text-center lg:text-left">
               Connect With Me
             </h3>
-            
+
             <div className="space-y-3 sm:space-y-4">
               {[
-                { icon: Youtube, label: 'YouTube', handle: '@nitinsingh' },
-                { icon: Instagram, label: 'Instagram', handle: '@nitinsingh' },
-                { icon: MessageCircle, label: 'WhatsApp', handle: '+91 7310498750' },
-                { icon: Mail, label: 'Email', handle: 'contact@nitinsingh.com' }
+                { icon: Youtube, label: "YouTube", handle: "@nitinsingh" },
+                { icon: Instagram, label: "Instagram", handle: "@nitinsingh" },
+                {
+                  icon: MessageCircle,
+                  label: "WhatsApp",
+                  handle: "+91 7310498750",
+                },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  handle: "contact@nitinsingh.com",
+                },
               ].map((social) => (
                 <a
                   key={social.label}
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Social",
+                      action: `Clicked ${social.label} Link`,
+                      label: social.handle,
+                    });
+                  }}
                   href="https://www.instagram.com/maxxcoding?igsh=MWxjNGltMno5dm8xeA=="
                   className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
                 >
                   <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 group-hover:text-blue-300 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <div className="text-white font-medium text-sm sm:text-base">{social.label}</div>
-                    <div className="text-white/60 text-xs sm:text-sm truncate">{social.handle}</div>
+                    <div className="text-white font-medium text-sm sm:text-base">
+                      {social.label}
+                    </div>
+                    <div className="text-white/60 text-xs sm:text-sm truncate">
+                      {social.handle}
+                    </div>
                   </div>
                 </a>
               ))}
