@@ -117,6 +117,49 @@ function PricingCards({ activeTab }: PricingCardsProps) {
                     ] 
                 }
             ]
+        },
+        {
+            title: "Add-Ons",
+            description: "Enhance your website with additional features and services",
+            plans: [
+                { 
+                    name: "Content & Design Add-Ons", 
+                    price: "₹500", 
+                    features: [
+                        "Blog or Article Module: Starts from ₹10,000", 
+                        "Extra static pages: Simple design (₹1,000-₹1,500)", 
+                        "Complex pages (₹1,500–₹2,000)", 
+                        "Content writing: ₹500–₹1,000 per page", 
+                        "Logo/branding: ₹500–₹2,000", 
+                        "Product description writing: ₹50–₹500/product"
+                    ] 
+                },
+                { 
+                    name: "Technical & Integration Add-Ons", 
+                    price: "₹5,000", 
+                    features: [
+                        "Premium plugins or API integrations (CRM, live chat)", 
+                        "Third‑party shipping or ERP setup: ₹10,000–₹1,00,000+", 
+                        "Domain and Hosting support provided", 
+                        "SSL certificate: Provided free with hosting", 
+                        "Advanced integrations and custom setups", 
+                        "Professional consultation included"
+                    ] 
+                },
+                { 
+                    name: "Fully Managed Service", 
+                    price: "₹5,000", 
+                    features: [
+                        "Complete website management", 
+                        "Domain and hosting management", 
+                        "Database maintenance and optimization", 
+                        "Service uptime monitoring", 
+                        "Timely maintenance and bug fixes", 
+                        "Annual service: ₹5,000–₹50,000+ /year", 
+                        "*We manage your app entirely from domain and hosting, databases, service uptime to timely maintenance, bug fixes and other essentials."
+                    ] 
+                }
+            ]
         }
     ];
 
@@ -144,7 +187,9 @@ function PricingCards({ activeTab }: PricingCardsProps) {
                                     ? '0 0 20px rgba(139, 92, 246, 0.3)' 
                                     : activeTab === 1 
                                     ? '0 0 20px rgba(236, 72, 153, 0.3)' 
-                                    : '0 0 20px rgba(16, 185, 129, 0.3)',
+                                    : activeTab === 2
+                                    ? '0 0 20px rgba(16, 185, 129, 0.3)'
+                                    : '0 0 20px rgba(249, 115, 22, 0.3)',
                                 animation: 'neonPulse 4s ease-in-out infinite alternate'
                             }}
                         >
@@ -157,7 +202,9 @@ function PricingCards({ activeTab }: PricingCardsProps) {
                                             ? 'bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent' 
                                             : activeTab === 1 
                                             ? 'bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent' 
-                                            : 'bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent'
+                                            : activeTab === 2
+                                            ? 'bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent'
+                                            : 'bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent'
                                     }`}
                                 >
                                     {plan.price}
@@ -175,7 +222,9 @@ function PricingCards({ activeTab }: PricingCardsProps) {
                                                     ? 'linear-gradient(135deg, #8b5cf6, #06b6d4)' 
                                                     : activeTab === 1 
                                                     ? 'linear-gradient(135deg, #ec4899, #f59e0b)' 
-                                                    : 'linear-gradient(135deg, #10b981, #3b82f6)'
+                                                    : activeTab === 2
+                                                    ? 'linear-gradient(135deg, #10b981, #3b82f6)'
+                                                    : 'linear-gradient(135deg, #f97316, #ef4444)'
                                             }} 
                                         />
                                         {feature}
@@ -190,12 +239,16 @@ function PricingCards({ activeTab }: PricingCardsProps) {
                                         ? 'linear-gradient(135deg, #8b5cf6, #06b6d4)' 
                                         : activeTab === 1 
                                         ? 'linear-gradient(135deg, #ec4899, #f59e0b)' 
-                                        : 'linear-gradient(135deg, #10b981, #3b82f6)',
+                                        : activeTab === 2
+                                        ? 'linear-gradient(135deg, #10b981, #3b82f6)'
+                                        : 'linear-gradient(135deg, #f97316, #ef4444)',
                                     boxShadow: activeTab === 0 
                                         ? '0 4px 15px rgba(139, 92, 246, 0.4)' 
                                         : activeTab === 1 
                                         ? '0 4px 15px rgba(236, 72, 153, 0.4)' 
-                                        : '0 4px 15px rgba(16, 185, 129, 0.4)'
+                                        : activeTab === 2
+                                        ? '0 4px 15px rgba(16, 185, 129, 0.4)'
+                                        : '0 4px 15px rgba(249, 115, 22, 0.4)'
                                 }}
                                 onClick={() => {
                                     // Navigate with plan information

@@ -47,10 +47,10 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-center md:text-left mb-6 md:mb-0">
+          <div className="flex flex-col justify-center items-center">
+            <div className="text-center">
               <p className="text-white/80 text-sm">
-                © 2024 Nitin Singh. All rights reserved.
+                © 2025 Nitin Singh. All rights reserved.
               </p>
               <p className="text-white/60 text-xs mt-1">
                 Crafted with ❤️ by Nitin Singh

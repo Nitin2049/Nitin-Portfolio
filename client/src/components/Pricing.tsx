@@ -7,7 +7,8 @@ function Pricing() {
     const tabs = [
         "Starter Plans",
         "CMS Plans", 
-        "E‑Commerce / Online Store Plans"
+        "E‑Commerce / Online Store Plans",
+        "Add-Ons"
     ];
 
     
@@ -39,7 +40,8 @@ function Pricing() {
                                 ? `linear-gradient(135deg, ${
                                     index === 0 ? '#8b5cf6, #06b6d4' :
                                     index === 1 ? '#ec4899, #f59e0b' :
-                                    '#10b981, #3b82f6'
+                                    index === 2 ? '#10b981, #3b82f6' :
+                                    '#f97316, #ef4444'
                                 })`
                                 : 'rgba(255, 255, 255, 0.1)',
                             backdropFilter: 'blur(10px)',
@@ -50,11 +52,13 @@ function Pricing() {
                                 ? `0 0 30px ${
                                     index === 0 ? 'rgba(139, 92, 246, 0.5)' :
                                     index === 1 ? 'rgba(236, 72, 153, 0.5)' :
-                                    'rgba(16, 185, 129, 0.5)'
+                                    index === 2 ? 'rgba(16, 185, 129, 0.5)' :
+                                    'rgba(249, 115, 22, 0.5)'
                                 }, 0 0 60px ${
                                     index === 0 ? 'rgba(6, 182, 212, 0.3)' :
                                     index === 1 ? 'rgba(245, 158, 11, 0.3)' :
-                                    'rgba(59, 130, 246, 0.3)'
+                                    index === 2 ? 'rgba(59, 130, 246, 0.3)' :
+                                    'rgba(239, 68, 68, 0.3)'
                                 }`
                                 : 'none',
                             animation: activeTab === index ? 'neonPulse 3s ease-in-out infinite alternate' : 'none'
@@ -68,7 +72,8 @@ function Pricing() {
                                     background: `linear-gradient(135deg, ${
                                         index === 0 ? 'rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.3)' :
                                         index === 1 ? 'rgba(236, 72, 153, 0.3), rgba(245, 158, 11, 0.3)' :
-                                        'rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3)'
+                                        index === 2 ? 'rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3)' :
+                                        'rgba(249, 115, 22, 0.3), rgba(239, 68, 68, 0.3)'
                                     })`
                                 }}
                             />
